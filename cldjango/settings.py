@@ -22,7 +22,7 @@ SECRET_KEY = '0fi-2-s*)6*%ku#lo87az8)lnwgbft*1q5u)pn3p^0zcio9*z)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'imagebook',
+    'polls',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -73,6 +74,24 @@ DATABASES = {
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+# TEMPLATE_DEBUG = True
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
